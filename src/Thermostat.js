@@ -8,6 +8,7 @@ function Thermostat(){
   this.currentTemp = this._DEFAULT_TEMPERATURE;
   this.powerSaving = true;
   this.maximumTemp = this._POWER_SAVE_TEMP;
+  this._LOW_TEMP = 18;
 }
 
 Thermostat.prototype.temperature = function(){
@@ -15,7 +16,7 @@ Thermostat.prototype.temperature = function(){
 };
 
 Thermostat.prototype.increaseTemp = function(){
-  if (this.currentTemp === this._POWER_SAVE_TEMP) {
+  if ((this.powerSaving = true) && (this.currentTemp === this._POWER_SAVE_TEMP)) {
     throw new Error('Temperature cannot go higher than 25°C');
   }
   return this.currentTemp += 1;
@@ -41,4 +42,14 @@ Thermostat.prototype.powerSavingSwitch = function() {
 
 Thermostat.prototype.resetTemp = function() {
   this.currentTemp = this._DEFAULT_TEMPERATURE;
+};
+
+Thermostat.prototype.energyUsage = function() {
+  if (this.currentTemp < this._LOW_TEMP){
+    return 'low-usage';
+  }
+  if (this.currentTemp > this._POWER_SAVE_TEMP){
+    return 'high-usage';
+  }
+  return 'medium-usage';
 };

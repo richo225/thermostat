@@ -54,6 +54,7 @@ describe ('Thermostat', function(){
       thermostat.powerSavingSwitch();
       expect(thermostat.maximumTemp).toEqual(thermostat._MAX_TEMP);
     });
+    
   });
 
   describe('Temperature Reset', function(){
@@ -66,4 +67,34 @@ describe ('Thermostat', function(){
       expect(thermostat.currentTemp).toEqual(thermostat._DEFAULT_TEMPERATURE);
     });
   });
+
+  describe('Energy Usage', function(){
+
+    describe('when temperature is below 18°C', function(){
+      it('energy usage is low', function(){
+        for (i= 0; i <3; i++) {
+          thermostat.decreaseTemp();
+        }
+        expect(thermostat.energyUsage()).toEqual('low-usage');
+      });
+    });
+
+    describe('when temperature is between 18°C and 25°C', function(){
+      it("energy usage is medium", function(){
+        expect(thermostat.energyUsage()).toEqual('medium-usage');
+      });
+    });
+
+    describe('when temperature is above 25°C', function(){
+      it('energy usage is high', function(){
+        thermostat.powerSaving = false;
+        for (i= 0; i <7; i++) {
+          thermostat.increaseTemp();
+        }
+        expect(thermostat.energyUsage()).toEqual('high-usage');
+      });
+    });
+
+  });
+
 });
