@@ -15,16 +15,23 @@ Thermostat.prototype.temperature = function(){
   return this.currentTemp;
 };
 
+Thermostat.prototype.isMaximumTemp = function() {
+  if(this.powerSaving === false) {
+    return this.currentTemp === this._MAX_TEMP;
+  }
+  return this.currentTemp === this._POWER_SAVE_TEMP;
+};
+
 Thermostat.prototype.increaseTemp = function(){
-  if ((this.powerSaving = true) && (this.currentTemp === this._POWER_SAVE_TEMP)) {
-    throw new Error('Temperature cannot go higher than 25°C');
+  if (this.isMaximumTemp()) {
+    return;
   }
   return this.currentTemp += 1;
 };
 
 Thermostat.prototype.decreaseTemp = function(){
   if (this.currentTemp === this._MINIMUM_TEMP) {
-    throw new Error('Temperature cannot go lower than 10°C');
+    return;
   }
   return this.currentTemp -= 1;
 

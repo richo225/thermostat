@@ -22,9 +22,11 @@ describe ('Thermostat', function(){
     expect(thermostat.temperature()).toEqual(thermostat._DEFAULT_TEMPERATURE -= 1);
   });
 
-  it('returns error if temperature is below 10 degrees C', function(){
-    thermostat.currentTemp = thermostat._MINIMUM_TEMP;
-    expect(function(){ thermostat.decreaseTemp(); }).toThrowError('Temperature cannot go lower than 10°C');
+  it('can not go below 10°C', function(){
+    for (i = 0; i < 11; i++) {
+      thermostat.decreaseTemp();
+    }
+    expect(thermostat.temperature()).toEqual(thermostat._MINIMUM_TEMP);
   });
 
   describe ('power saving mode on', function(){
@@ -33,9 +35,11 @@ describe ('Thermostat', function(){
       expect(thermostat.maximumTemp).toEqual(thermostat._POWER_SAVE_TEMP);
     });
 
-    it('returns error if temperature is above 25 degrees C', function(){
-      thermostat.currentTemp = thermostat._POWER_SAVE_TEMP;
-      expect(function(){ thermostat.increaseTemp(); }).toThrowError('Temperature cannot go higher than 25°C');
+    it('can not go above 25°C', function(){
+      for (i = 0; i < 7; i++) {
+        thermostat.increaseTemp();
+      }
+      expect(thermostat.temperature()).toEqual(thermostat._POWER_SAVE_TEMP);
     });
 
     it('is on by default', function(){
@@ -54,7 +58,15 @@ describe ('Thermostat', function(){
       thermostat.powerSavingSwitch();
       expect(thermostat.maximumTemp).toEqual(thermostat._MAX_TEMP);
     });
-    
+
+    it('can not go above 32°C', function(){
+      thermostat.powerSavingSwitch();
+      for (i = 0; i < 13; i++) {
+        thermostat.increaseTemp();
+      }
+      expect(thermostat.temperature()).toEqual(thermostat._MAX_TEMP);
+    });
+
   });
 
   describe('Temperature Reset', function(){
@@ -64,7 +76,7 @@ describe ('Thermostat', function(){
         thermostat.decreaseTemp();
       }
       thermostat.resetTemp();
-      expect(thermostat.currentTemp).toEqual(thermostat._DEFAULT_TEMPERATURE);
+      expect(thermostat.temperature()).toEqual(thermostat._DEFAULT_TEMPERATURE);
     });
   });
 
