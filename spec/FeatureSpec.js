@@ -79,6 +79,14 @@ describe('Thermostat', function(){
   });
 
 
+  // You can reset the temperature to 20 by hitting the reset button
+  it('Resets the temperature to 20 by pressing reset button',function() {
+    thermostat.up();
+    thermostat.resetTemperature();
+    expect(thermostat.temperature).toEqual(20)
+  });
+
+
 
 
 });
