@@ -12,11 +12,14 @@ Thermostat.prototype.temperature = function () {
 
 Thermostat.prototype.up = function () {
   if (this.powerSave && (this.temperature >= 25)) {
-    throw new Error('Can not go above 25 degrees');
-  } else {
+    throw new Error('Powersave On: Can not go above 25 degrees');
+  }
+  else if (this.temperature >= 32) {
+    throw new Error('Powersave Off: Can not go above 32 degrees');
+  }
+  else {
     return this.temperature += 1;
   }
-
 };
 
 

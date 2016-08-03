@@ -64,7 +64,19 @@ describe('Thermostat', function(){
         thermostat.up();
       };
       // expect(thermostat.temperature).toEqual(25)
-    expect(function(){ thermostat.up(); }).toThrow( Error('Can not go above 25 degrees'));
+    expect(function(){ thermostat.up(); }).toThrow( Error('Powersave On: Can not go above 25 degrees'))
   });
+
+  // If power saving mode is off, the maximum temperature is 32 degrees
+
+  it('If power saving mode is off, the maximum temperature is 32 degrees', function(){
+    var times =12;
+    for(var i=0; i < times; i++){
+      thermostat.up();
+    };
+
+    expect(function(){ thermostat.up(); }).toThrow( Error('Powersave Off: Can not go above 32 degrees'))
+  });
+
 
 });
