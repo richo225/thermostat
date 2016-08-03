@@ -19,7 +19,7 @@ Thermostat.prototype.down = function () {
   };
 
   // Why is this not passing the test
-  if (this.temperature === 10) throw new Error("It's too clod you CRAZY!!");
-  if (this.temperature > 10) return this.temperature -= 1;
+  // if (this.temperature === 10) throw new Error("It's too clod you CRAZY!!");
+  // if (this.temperature > 10) return this.temperature -= 1;
 
 };
