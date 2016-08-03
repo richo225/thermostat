@@ -1,6 +1,7 @@
 'use strict';
 
 function Thermostat(){
+  this._MINIMUM_TEMP = 10;
   this._DEFAULT_TEMPERATURE = 20;
   this._POWER_SAVE_TEMP = 25;
   this._MAX_TEMP = 32;
@@ -14,14 +15,14 @@ Thermostat.prototype.temperature = function(){
 };
 
 Thermostat.prototype.increaseTemp = function(){
-  if (this.currentTemp === 25) {
+  if (this.currentTemp === this._POWER_SAVE_TEMP) {
     throw new Error('Temperature cannot go higher than 25°C');
   }
   return this.currentTemp += 1;
 };
 
 Thermostat.prototype.decreaseTemp = function(){
-  if (this.currentTemp === 10) {
+  if (this.currentTemp === this._MINIMUM_TEMP) {
     throw new Error('Temperature cannot go lower than 10°C');
   }
   return this.currentTemp -= 1;

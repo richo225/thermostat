@@ -23,7 +23,7 @@ describe ('Thermostat', function(){
   });
 
   it('returns error if temperature is below 10 degrees C', function(){
-    thermostat.currentTemp = 10;
+    thermostat.currentTemp = thermostat._MINIMUM_TEMP;
     expect(function(){ thermostat.decreaseTemp(); }).toThrowError('Temperature cannot go lower than 10°C');
   });
 
