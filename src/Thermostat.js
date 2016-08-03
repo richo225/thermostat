@@ -12,16 +12,10 @@ Thermostat.prototype.up = function () {
 };
 
 Thermostat.prototype.down = function () {
-  return this.temperature -= 1
-};
+  if (this.temperature > 10) {
+    return this.temperature -= 1
+  } else {
+    throw new Error("It's too clod you CRAZY!!");
+  };
 
-// Another way of doing it:
-// Thermostat.prototype = {
-//   temperature: function(){
-//     return this._temperature;
-//   },
-//
-//   up: function() {
-//     this._temperature += 1
-//   }
-// };
+};

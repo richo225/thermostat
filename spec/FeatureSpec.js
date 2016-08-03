@@ -26,4 +26,15 @@ describe('Thermostat', function(){
     thermostat.down();
     expect(thermostat.temperature).toEqual(19);
   });
+
+  // The minimum temperature is 10 degrees
+  it('Cannt drop below 10 dgrees',function(){
+    var times = 10;
+    for(var i=0;
+      i < times;
+      i++) {
+        thermostat.down();
+      };
+    expect(thermostat.down).toThrow(new Error("It's too clod you CRAZY!!"));
+  });
 });
