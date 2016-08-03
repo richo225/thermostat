@@ -37,4 +37,27 @@ describe('Thermostat', function(){
       };
     expect(thermostat.down).toThrow(new Error("It's too clod you CRAZY!!"));
   });
+
+
+// If power saving mode is on, the maximum temperature is 25 degrees
+  it('Initialy the power saving mode is OFF',function(){
+    expect(thermostat.powerSave).toBe(false);
+  });
+
+  it('The power saving mode can be turned on',function(){
+    thermostat.powerSavingOn();
+    expect(thermostat.powerSave).toBe(true);
+  });
+
+  it('The power saving mode can be turned off',function(){
+    thermostat.powerSavingOff();
+    expect(thermostat.powerSave).toBe(false);
+  });
+
+  // it('If power saving mode is on, max temp is 25',function(){
+  //   thermostat.powerSavingOn();
+  // })
+
+
+
 });
