@@ -29,7 +29,7 @@ describe('Thermostat', function(){
 
   // The minimum temperature is 10 degrees
   it('Cannt drop below 10 dgrees',function(){
-    var times = 10;
+    var times =10;
     for(var i=0;
       i < times;
       i++) {
