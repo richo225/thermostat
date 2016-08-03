@@ -35,7 +35,7 @@ describe('Thermostat', function(){
       i++) {
         thermostat.down();
       };
-    expect(thermostat.down).toThrow(new Error("It's too clod you CRAZY!!"));
+    expect(function(){ thermostat.down(); }).toThrow( Error("It's too clod you CRAZY!!"));
   });
 
 
@@ -54,10 +54,17 @@ describe('Thermostat', function(){
     expect(thermostat.powerSave).toBe(false);
   });
 
-  // it('If power saving mode is on, max temp is 25',function(){
-  //   thermostat.powerSavingOn();
-  // })
 
-
+  it('If power saving mode is on, max temp is 25',function(){
+    thermostat.powerSavingOn();
+    var times =5;
+    for(var i=0;
+      i < times;
+      i++) {
+        thermostat.up();
+      };
+      // expect(thermostat.temperature).toEqual(25)
+    expect(function(){ thermostat.up(); }).toThrow( Error('Can not go above 25 degrees'));
+  });
 
 });

@@ -4,8 +4,33 @@ Thermostat = function(){
 };
 
 
+
+Thermostat.prototype.temperature = function () {
+  return this.temperature;
+};
+
+
+Thermostat.prototype.up = function () {
+  if (this.powerSave && (this.temperature >= 25)) {
+    throw new Error('Can not go above 25 degrees');
+  } else {
+    return this.temperature += 1;
+  }
+
+};
+
+
+Thermostat.prototype.down = function () {
+  if (this.temperature > 10) {
+    return this.temperature -= 1;
+  } else {
+    throw new Error("It's too clod you CRAZY!!");
+}
+
+};
+
 Thermostat.prototype.powerSavingOn = function () {
-  return this.powerSave = true
+  return this.powerSave = true;
   };
 
 Thermostat.prototype.powerSave = function () {
@@ -13,32 +38,5 @@ Thermostat.prototype.powerSave = function () {
   };
 
 Thermostat.prototype.powerSavingOff = function () {
-  return this.powerSave = false
+  return this.powerSave = false;
   };
-
-  Thermostat.prototype.temperature = function () {
-  return this.temperature
-};
-
-Thermostat.prototype.up = function () {
-   return this.temperature += 1
-};
-
-Thermostat.prototype.down = function () {
-  if (this.temperature > 10) {
-    return this.temperature -= 1
-  } else {
-    throw new Error("It's too clod you CRAZY!!");
-};
-
-
-
-
-
-
-
-  // Why is this not passing the test
-  // if (this.temperature === 10) throw new Error("It's too clod you CRAZY!!");
-  // if (this.temperature > 10) return this.temperature -= 1;
-
-};
