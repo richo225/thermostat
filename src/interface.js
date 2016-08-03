@@ -17,13 +17,13 @@ $(document).ready(function() {
     updateTemperature();
   });
 
-  $('#power-saving-toggle').click(function() {
+   $("#power-saving-toggle").bootstrapSwitch();
+  // $("#power-saving-toggle").click/toggle(function(){
+  //   thermostat.powerSavingSwitch();
+  //   updateTemperature();
+  // });
+  $("#power-saving-toggle").on('switchChange.bootstrapSwitch', function() {
     thermostat.powerSavingSwitch();
-    if (thermostat.powerSaving === false) {
-      $('#power-saving-status').text('off');
-    } else {
-      $('#power-saving-status').text('on');
-    }
     updateTemperature();
   });
 
