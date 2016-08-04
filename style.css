@@ -1,0 +1,12 @@
+.low-usage {
+  color: green;
+}
+.medium-usage {
+  color: orange;
+}
+.high-usage {
+  color: red;
+}
+
+#temperature-up   {border-radius: 50%;}
+#temperature-down {border-radius: 50%;}

@@ -11,7 +11,7 @@ $(document).ready(function() {
 
   function updateTemperature() {
     $('#temperature').text(thermostat.temperature);
-    $('#temperature').attr('class', thermostat.energyUsage());
+    $('h1').attr('class', thermostat.energyUsage());
   };
 
   $('#temperature-down').click(function() {
@@ -29,17 +29,6 @@ $(document).ready(function() {
     updateTemperature();
   });
 
-  $('#powersaving-on').click(function() {
-    thermostat.switchPowerSavingModeOn();
-    $('#power-saving-status').text('ON');
-    updateTemperature();
-  });
-
-  $('#powersaving-off').click(function() {
-    thermostat.switchPowerSavingModeOff();
-    $('#power-saving-status').text('OFF');
-    updateTemperature();
-  });
 
   $("#power-saving-toggle").bootstrapSwitch();
   $("#power-saving-toggle").on('switchChange.bootstrapSwitch', function() {
@@ -59,6 +48,7 @@ $(document).ready(function() {
     var units = '&units=metric'
     $.get(url + token + units , function(data) {
       $('#current-temperature').text(data.main.temp);
+      $('#city-name').text(city + '  temperature: ')
     });
   };
 
