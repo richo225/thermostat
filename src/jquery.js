@@ -41,6 +41,12 @@ $(document).ready(function() {
     updateTemperature();
   });
 
+  $("#power-saving-toggle").bootstrapSwitch();
+  $("#power-saving-toggle").on('switchChange.bootstrapSwitch', function() {
+   thermostat.togglePowerSavingMode();
+   updateTemperature();
+ });
+
   $('#select-city').submit(function(event){
     event.preventDefault();
     var city = $('#current-city').val();

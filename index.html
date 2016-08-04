@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Thermostat</title>
+      <link rel="stylesheet" type="text/css" href="http://getbootstrap.com/dist/css/bootstrap.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/css/bootstrap2/bootstrap-switch.css">
     <style>
     .low-usage {
       color: green;
@@ -16,7 +18,7 @@
   </head>
   <body>
     <section>
-      <h1> Temperature: <span id="temperature"></h1>
+      <h1> Temperature: <span id="temperature"></span></h1>
       <p>
         <button id="temperature-up">+</button>
         <button id="temperature-down">-</button>
@@ -24,6 +26,7 @@
         power saving mode is <span id="power-saving-status">on</span>
         <button id="powersaving-on">PSM on</button>
         <button id="powersaving-off">PSM off</button>
+        <input type="checkbox" id="power-saving-toggle" checked />
       </p>
     </section>
     <section>
@@ -37,6 +40,7 @@
     <script src="src/Thermostat.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="src/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.js"></script>
 
   </body>
 </html>

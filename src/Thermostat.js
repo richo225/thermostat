@@ -48,6 +48,14 @@ Thermostat.prototype.switchPowerSavingModeOn = function() {
   this.powerSavingMode = true;
 };
 
+Thermostat.prototype.togglePowerSavingMode = function() {
+  if (this.powerSavingMode === true) {
+    this.switchPowerSavingModeOff();
+  } else {
+    this.switchPowerSavingModeOn();
+  }
+};
+
 
 Thermostat.prototype.isMaximumTemperature = function() {
   if (this.isPowerSavingModeOn()) {
