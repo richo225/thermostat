@@ -30,7 +30,7 @@ $(document).ready(function() {
   });
 
 
-  $("#power-saving-toggle").bootstrapSwitch();
+  $("#power-saving-toggle").bootstrapSwitch({offColor: 'danger', onColor: 'success'});
   $("#power-saving-toggle").on('switchChange.bootstrapSwitch', function() {
    thermostat.togglePowerSavingMode();
    updateTemperature();
