@@ -7,27 +7,30 @@
       <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <section>
-
-      <form id='select-city'>
-        <input id='current-city' type="text" placeholder='Enter your current city'></input>
-        <input type="submit" id='city-form'></input>
-      </form>
-      <h2> <span id='city-name'></span><span id="current-temperature"></span></h2>
-    </section>
-
     <center>
     <section>
-      <h1> Temperature: <span id="temperature"></span>&#8451</h1>
-      <p>
+      <div class="circle"> <span id="temperature"> </span> </div>
+      <br>
         <button id="temperature-up">+</button>
         <button id="temperature-down">-</button>
         <button id="temperature-reset">reset</button>
-        power saving mode is
+        <br>
+        <br>
+        Power Saving
         <input type="checkbox" id="power-saving-toggle" checked />
       </p>
     </section>
-  </center>
+    </center>
+
+    <section>
+    <center>
+      <form id='select-city'>
+        <input id='current-city' type="text" placeholder='Enter your city'></input>
+        <input type="submit" id='city-form'></input>
+      </form>
+      <h2> <span id='city-name'></span><span id="current-temperature"></span> &#8451</h2>
+    </center>
+    </section>
 
     <script src="src/Thermostat.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>

@@ -1,5 +1,5 @@
 .low-usage {
-  color: green;
+  color: #3CB371;
 }
 .medium-usage {
   color: orange;
@@ -8,11 +8,70 @@
   color: red;
 }
 
-#temperature-up   {border-radius: 50%;}
-#temperature-down {border-radius: 50%;}
-#temperature-reset {border-radius: 5px;}
-#city-form {border-radius: 5px;}
+#temperature-up   {
+  background-color: #bbb;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  width: 50px;
+  border-radius:6px;
+  color: #fff;
+  font-family: 'Oswald';
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+#temperature-down {
+  background-color: #bbb;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  width: 50px;
+  border-radius:6px;
+  color: #fff;
+  font-family: 'Oswald';
+  font-size: 20px;
+  cursor: pointer;
+}
+#temperature-reset {
+    background-color: #bbb;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    width: 70px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#city-form {
+  background-color: #bbb;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  width: 100px;
+  border-radius:6px;
+  color: #fff;
+  font-family: 'Oswald';
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 body {background-color: #ADD8E6;}
-h1 {font-family: 'Helvetica Neue', sans-serif; font-size: 50px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
-h2 {color: #008B8B ; font-family: 'Helvetica Neue', sans-serif; font-size: 50px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+h2 {color: #008B8B ; font-family: 'Helvetica Neue', sans-serif; font-size: 20px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+
+.circle{
+  width:210px;
+  height:210px;
+  border-radius:50%;
+  text-align:center;
+  vertical-align: middle;
+  display: table-cell;
+  border:8px solid white;
+  font-size:70px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-align: center;
+}
