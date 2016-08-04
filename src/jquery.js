@@ -1,8 +1,7 @@
-
-
 $(document).ready(function() {
   var thermostat = new Thermostat();
   updateTemperature();
+
   $('#temperature').text(thermostat.temperature);
   if (thermostat.powerSavingMode) {
     $('#power-saving-status').text('ON');
