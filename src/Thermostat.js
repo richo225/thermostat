@@ -1,6 +1,3 @@
-
-
-
 'use strict';
 
 function Thermostat() {
@@ -11,7 +8,7 @@ function Thermostat() {
   this.MAX_LIMIT_PSM_OFF = 32;
   this.powerSavingMode = true;
   this.MEDIUM_ENERGY_USAGE_LIMIT = 18;
-}
+};
 
 Thermostat.prototype.getCurrentTemperature = function() {
   return this.temperature;
