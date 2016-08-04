@@ -110,6 +110,4 @@ describe('displaying usage levels', function() {
     });
   });
 });
-
-
 });

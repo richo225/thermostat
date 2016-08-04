@@ -51,5 +51,4 @@ $(document).ready(function() {
       $('#city-name').text(city + '  temperature: ')
     });
   };
-
 });
