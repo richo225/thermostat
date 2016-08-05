@@ -49,6 +49,12 @@ $(document).ready(function() {
     $.get(url + token + units , function(data) {
       $('#current-temperature').text(data.main.temp);
       $('#city-name').text(city + '  temperature: ')
-    });
+   });
+    //  $.postJSON('http://localhost:4567/temp', { temp: data.main.temp, city: city }  function(data){};
   };
 });
+
+//   $.get('http://localhost:4567/temp', { temp: data.main.temp, city: city }  function(data) {
+//   $('#current-temperature').text(data.main.temp);
+//   $('#city-name').text(city + '  temperature: ')
+// };
