@@ -7,12 +7,12 @@ $(document).ready(function() {
     $('#power-saving-status').text('ON');
   }else {
     $('#power-saving-status').text('OFF');
-  };
+  }
 
   function updateTemperature() {
     $('#temperature').text(thermostat.temperature);
     $('#temperature').attr('class', thermostat.energyUsage());
-  };
+  }
 
   $('#temperature-down').click(function() {
     thermostat.down();
@@ -44,14 +44,14 @@ $(document).ready(function() {
 
   function displayWeather(city) {
     var url   = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
-    var token = '&appid=267264c5f0acf7f84238123331b10e7a'
-    var units = '&units=metric'
+    var token = '&appid=267264c5f0acf7f84238123331b10e7a';
+    var units = '&units=metric';
     $.get(url + token + units , function(data) {
       $('#current-temperature').text(data.main.temp);
-      $('#city-name').text(city + '  temperature: ')
+      $('#city-name').text(city + '  temperature: ');
    });
     //  $.postJSON('http://localhost:4567/temp', { temp: data.main.temp, city: city }  function(data){};
-  };
+  }
 });
 
 //   $.get('http://localhost:4567/temp', { temp: data.main.temp, city: city }  function(data) {
